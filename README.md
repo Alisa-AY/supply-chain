@@ -85,7 +85,7 @@
 ① 操作系统账密：root/ibwedu123
 ② MySQL 数据库密码：root/123456
 ③ WeBASE 管理平台地址为 http://ip:5000，账密 admin/Ibwedu123（首字母 i 大写）
-④ 供应链支付结算平台地址为 http://ip:9528，含三个账户，分别是： 
+④ 去中心化智能分账引擎平台地址为 http://ip:9528，含三个账户，分别是： 
 · supplier/123456
 ·core/123456
 ·dealer/123456
