@@ -11,7 +11,7 @@
 
 为攻克景区运营中门票销售与分账管理不透明、效率低等难题，我们基于 FISCO BCOS 区块链平台，打造 “合约账本：去中心化智能分账引擎”。该引擎以智能合约为核心，构建去中心化分账体系，重塑景区收入管理模式。​
 在系统架构层面，依托 FISCO BCOS 平台，通过智能合约实现自动化分账。其核心模块包括用户信息管理、景区信息管理、票务销售、收入分配及数据查询五大模块。功能设计上，用户信息管理模块支持用户注册登录，并可创建、管理景区信息；票务销售模块提供便捷的票务销售服务；收入分配模块借助智能合约自动执行分账规则，用户可实时追踪分配进程，确保比例精准；数据查询模块则利用区块链浏览器，让每一笔交易记录公开可溯，以去中心化特性保障数据真实可靠。该引擎凭借智能合约与去中心化优势，为景区收入管理带来高效、透明的解决方案。系统具体架构如下图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/27dfe763-2a4c-477c-ae41-30eeca9bf178)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/system%20architecture.png)
 
 
 ## 3. 详细设计
@@ -19,56 +19,53 @@
 ###  3.1 系统架构
 ```
 本作品系统架构如下图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/5e9163bc-2f78-47a5-b476-b5a133dc6ff9)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/system%20architecture.png)
 
 ```
 
 ###  3.2 业务流程
   #### 新建供应链流程图
-  ![image](https://github.com/rockyhancs/supply-chain/assets/20641831/4f9443cd-efbc-4ba5-b450-0e25550e283f)
+  ![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/new%20line.png)
 
   #### 多方签名流程图
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/2ce711ff-43a7-4339-b482-9ff9df70303d)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/signature.png)
 
   #### 模拟支付流程图
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/615f0271-2e25-4869-907e-f5f04a10cb46)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/pay.png)
 
 ###  3.3 数据表设计
 数据库supplychain共包括7个表，各个表设计和字段描述如下：
 用于存储用户信息，主要包括用户id、用户名、解密后的密码、创建时间、更新时间以及参与链的ID等6个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/fa2ac1bc-fe3b-426a-9fae-9ab36f84646c)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.1.png)
 用于存储已创建供应链信息，主要包括供应链id、供应链名称、供应链描述、创建时间、更新时间、签名状态以及参与链的用户ID等7个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/1515fc0d-7b71-4034-a38f-0ccb62abe703)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.2.png)
 用于存储供应链参与者信息，主要包括供应链id、组织名、组织描述、链上分布式身份、创建时间、更新时间、用户id、余额、在webase中的名称、用户链上地址以及用户签名id等11个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/308623cb-a798-4d39-a3f1-6b7187ffe891)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.3.png)
 用于存储项目信息，主要包括项目id、供应链id、最近一个项目id、链上等级、参与者id、创建时间、更新时间、分成比例、角色、以及是否签名等10个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/ec7376d8-e911-4fc5-969f-f544af1d237e)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.4.png)
 用于存储使用到的存证合约和积分合约信息，主要包括合约id、合约名称、合约abi文件、合约的bin文件和合约的base64编码等5个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/437427fd-ea04-48de-944d-698a1e490d23)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.5.png)
 用于存储已部署的合约信息，主要包括id、合约名称、合约链上地址、合约类型、合约描述、部署时间、更新时间、链ID和拥有者did等9个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/d033f960-a11d-4866-9827-3b5590a9adeb)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.6.png)
 用于存储已存证的信息，主要id、存证的key、存证的value、存证描述、合约id、证据所有者、创建时间、更新时间、交易id和签名者等10个字段，字段名和类型如图所示：
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/eff5acc4-4f94-47c8-ab92-1d6b820e7bc6)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/3.3.7.png)
 
 
 
 ## 4. 主要测试
 测试用例：景区活动分账
 ### 4.1 首先注册并登录账号
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/8fa9d8cd-daed-442a-af36-4770f2edb653)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/register.png)
 
   
 ### 4.2 测试案例中我们注册为某景区，并将景区，广告商、赞助商的分成比例录入系统
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/aeab27a5-6bcf-4caa-8659-71b3271f314b)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/4.2.png)
 ### 4.3 由于广告商和赞助商没有签名，某景区不能成功支付，表面这款区块链平台需要 经过多方签名验证才可以记录交易
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/beb55edb-108f-426b-8a42-20f6c9a52fa2)
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/b2369220-05b8-40fa-9590-7c735b603f0b)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/4.3.png)
 ### 4.4 广告商和赞助商签名确认后，我们模拟支付 10000 元，款项立即按照签名确认 的比例汇入各方账户，效率极高。
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/fdac559c-ee51-41ed-b8d5-e7186a598b31)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/4.4.png)
 ### 4.5 通过 WeBASE 管理平台可以查看到我们演示的这笔交易，已经被记录上链
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/31bf945d-5d87-404c-9c99-8529ccbcc643)
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/96ea65c1-08da-4845-a920-265b09b04369)
-
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/4.5.png)
 总结：通过以上测试，我们验证了该平台的运行速度达到预期，通过交易上链也验证了安全性，能够对供应链上各方提供公平、公正、公开、高效的交易记录服务
 
 ## 5. 部署和使用
@@ -104,7 +101,7 @@ python3 deploy.py startAll
 ③启动供应链财管分布式平台前端服务： 
 cd ~/fisco/supply-chain-demo/frontend/supplychain/ 
 npm run dev
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/1cd51ca4-037f-4573-a6f6-a9144f24b5f4)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/run%20frontend.png)
 ④再打开一个终端，启动供应链财管分布式平台后端服务：
 cd ~/fisco/supply-chain-demo/backend/supply-chain-demo/target 
 nohup java -jar supply-chain-demo-0.0.1-SNAPSHOT.jar & 
@@ -113,8 +110,9 @@ ip addr
 ⑤登录供应链财管分布式平台 
 打开浏览器，根据ip addr查看的IP地址，输入http://ip:9528访问平台。 
 
-### 5.4 登录供应链支付结算平台
-打开浏览器，根据ipaddr查看的IP地址，输入http://ip:9528访问平台。 后续操作见附件《基于 FISCO BCOS 的供应链支付结算案例》第4.6节。 平台账密：
+### 5.4 登录去中心化智能分账引擎平台
+打开浏览器，根据ipaddr查看的IP地址，输入http://ip:9528访问平台。 后续操作见附件《去中心化智能分账引擎使用手册》第4.6节。 
+平台账密：
 supplier/123456
 core/123456
 dealer/123456
@@ -122,27 +120,27 @@ dealer/123456
 ①关闭后端服务
 ps -ef | grep "supply" 
 如图，找到红框标注的进程的ID，使用kill命令关闭进程；
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/9339d0fc-d0fd-424b-95ad-10d7dc3ffd61)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/kill.png)
 kill -9 7159
 ②关闭前端服务
 切换到刚才打开前端的终端对话框，同时按键盘ctrl+c退出服务即可
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/ca4fbdc9-0b3b-4fa1-beb0-df13ace5067c)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/close%20frontend.png)
 ③ 关闭WeBASE和区块链网络 
 cd ~/fisco/webase-deploy/ 
 python3 deploy.py stopAll 
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/4845360a-54cb-4b52-90b1-6bcff325a5bf)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/close%20web.png)
 
 ### 5.6 运行演示
 ①进入首页
 切换到浏览器，地址栏输入 http://192.168.169.129:9528，显示当前平台链路的数量和用户统计数量。
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/df201362-01c0-40ec-9bff-ae8a353965aa)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/5.6.png)
 点击右上角【注册】，分别注册三个账户，zhangsan0623,lisi0623,wangwu0623
 ③登录
 默认打开的是“自建链列表”，“参与链列表”是自己参与别人也包括自己的列表信息
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/f17fa7c0-c19d-4bab-8c24-f6a6e6537eb6)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/5.6.2.png)
 ④建链
 在“自建链列表”新建链，如图所示，输入标题和分成比例。 
-![image](https://github.com/rockyhancs/supply-chain/assets/20641831/7381b692-e9d8-42c3-bdf8-a04359b38c3f)
+![image](https://github.com/Alisa-AY/supply-chain/blob/main/images/5.6.3.png)
 ⑤模拟各方签名
 ⑥各方签名确认完成，模拟支付 
 ⑦查看WeBASE管理平台交易情况：切换到WeBASE平台，查看数据概览中交易信息
